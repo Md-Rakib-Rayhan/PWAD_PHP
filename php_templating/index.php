@@ -49,13 +49,6 @@
         <h1>Home Page</h1>
         <hr color="black">
         <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsa, enim. Sint quidem magni voluptates. Quasi labore, expedita exercitationem molestias saepe doloribus, dicta similique commodi nostrum tenetur quam quia. Eaque quisquam rem ea iusto, nulla neque deserunt quasi minima similique et aliquam placeat dolorem, consequuntur sunt, laboriosam molestiae! Blanditiis, repellendus ipsum.</p>
-
-        <?php
-        // echo "<pre>";
-        // print_r($_SERVER);
-        //echo $_SERVER['PHP_SELF'];
-        ?>
-
     </div>
 
 <!-- Footer Area -->

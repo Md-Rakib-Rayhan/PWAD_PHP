@@ -1,5 +1,6 @@
-    <?php $current_page = basename($_SERVER['PHP_SELF']); ?>
     <nav>
+
+        <?php $current_page = basename($_SERVER['PHP_SELF']); ?>
         
 
         <a href="index.php" <?php if ($current_page == "index.php"){ echo "class=\"active\""; }?> >Home</a> |
