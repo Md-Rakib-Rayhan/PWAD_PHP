@@ -1,12 +1,11 @@
 <?php
 
     $x;
-
     echo isset($x);
 
+    echo "Check<br>";
 
-    $x = 1;
-
+    $x = 10;
     echo isset($x);
 
 ?>

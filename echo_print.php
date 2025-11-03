@@ -34,6 +34,7 @@ echo("hello" . "hello echo <br>");
 $name = "Rakib";
 
 echo "<h2>$name</h2> <br>";
+// echo '<h2>$name</h2> <br>'; // aita hobe na aita direct print hobe(value na)e
 echo '<h2>' . $name . '</h2> <br>';
 echo '<h2>' , $name , '</h2> <br>';
 
