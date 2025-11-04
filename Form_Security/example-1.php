@@ -20,7 +20,7 @@
         Email Address: <br>
         <input type="text" name="email"> <br> <br>
         Favorite Programming Language:  <br>
-        <select name="language[]" multiple="multiple">
+        <select name="language[]" multiple="multiple"> <!-- [] for array -->  <!-- "multiple" for multiple selection beacause dropdown usually not work with multiple selection --> 
             <option value="html">HTML</option>
             <option value="c#">C#</option>
             <option value="java">JAVA</option>
@@ -28,7 +28,7 @@
             <option value="python">Python</option>
         </select> <br> <br>
         Course: <br>
-        <input type="checkbox" name="course[]" value="Graphics"> Graphics
+        <input type="checkbox" name="course[]" value="Graphics"> Graphics <!-- [] for array (to get multiple value in php) -->
         <input type="checkbox" name="course[]" value="Programming"> Programming
         <input type="checkbox" name="course[]" value="Data Entry"> Data Entry
         <input type="checkbox" name="course[]" value="AI/Machine Learning"> AI/Machine Learning <br><br>
@@ -66,7 +66,10 @@
                 $languages = $_POST["language"];
 
                 $languages_output = "";
-                $language_last = array_key_last($languages);
+                $language_last = array_key_last($languages); // return index num of last one
+
+                        //    array   as   value
+                // foreach($languages as $language){
 
                          // array as index => value
                 foreach($languages as $index => $language){
