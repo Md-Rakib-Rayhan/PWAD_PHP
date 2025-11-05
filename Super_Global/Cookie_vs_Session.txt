@@ -1,0 +1,13 @@
+Cookies:
+Storage Location: Stored on the client side (browser). _____________Main difference________
+Data Security   : Less secure, as it is exposed to the client.
+Performance     : Faster as data is stored on the client.
+Use cases       :  Storing non-sensitive user preferences. theme, language, tracking user behavior for analytics, "remember me" functionality
+
+
+
+Sessions:
+Storage Location: Stored on the server side (temporary on server). _____________Main difference________
+Data Security   : More secure, as data is stored on the server.
+Performance     : Slightly slower as each request requires server processing.
+Use cases       : Storing sensitive user information. login status, shopping cart contents, maintaining state across multiple pages, managing user authentication.
