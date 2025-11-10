@@ -6,6 +6,10 @@ echo "My name is Rayhan $box <br>";
 echo "My name is Rayhan {$box} <br><br>";
 
 
+echo 'My name is Rayhan $box <br>';
+echo 'My name is Rayhan {$box} <br><br>';
+
+
 print "My name is Rayhan $box <br>";
 print "My name is Rayhan {$box} <br><br>";
 
