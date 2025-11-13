@@ -1,0 +1,10 @@
+For Print
+--------------------
+echo "message"      | echo ("message")
+print "message"     | print ("message")
+
+printf("result: %d", $res)     -> outputs a formatted string
+print_r($arr);                 -> For array/object print
+
+
+

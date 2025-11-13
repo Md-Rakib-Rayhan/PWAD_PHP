@@ -1,0 +1,10 @@
+Difference in parameter and argument?
+
+Parameters are the placeholders, arguments are the actual values.
+Example:
+function add( parameter ) {
+    - - - - 
+     - - - - -
+}
+add( argument );
+
