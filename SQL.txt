@@ -1,0 +1,5 @@
+Database name store here as a folder
+C:\xampp\mysql\data
+
+
+
