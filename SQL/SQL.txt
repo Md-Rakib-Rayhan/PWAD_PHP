@@ -1,0 +1,78 @@
+(Database name) store here as a folder aslo (table name) file
+C:\xampp\mysql\data
+
+
+DDL (Data Definition Language)
+->  CREATE, ALTER, DROP, TRUNCATE, RENAME
+
+DML (Data Manipulation Language)
+->  SELECT, INSERT, UPDATE, DELETE
+
+DDL
+---
+Create Database
+
+
+CREATE DATABASE pwad_test;
+DROP DATABASE pwad_test;
+
+
+CREATE TABLE products (
+	
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    product_name VARCHAR (100) NOT NULL,
+    price FLOAT(10,2) NOT NULL,
+    quantity SMALLINT NULL
+)
+
+
+SELECT * FROM customers; -> show alldata from customer table
+SELECT customerID, customer_name,country FROM customers; -> specifig collume in table
+
+             ` is not mendotory         single quotes
+SELECT * FROM `customers` WHERE `country`= 'Mexico';
+SELECT * FROM customers WHERE country = 'UK';
+
+
+Logical/Conditional
+--------------
+SELECT * FROM customers WHERE country = 'Mexico' OR `country` = 'UK';
+SELECT * FROM customers WHERE country = 'UK' AND city = 'London';
+
+SELECT `productID`, `product_name`, `price` FROM `products` WHERE price<=10;
+SELECT `productID`, `product_name`, `price` FROM `products` WHERE price BETWEEN 30 AND 50;   ->Mean price>=30 AND price<=50;
+
+
+Sorting/Order by
+--------------
+SELECT `productID`, `product_name`, `price` FROM `products` WHERE price BETWEEN 30 AND 50 ORDER BY product_name;
+SELECT `productID`, `product_name`, `price` FROM `products` WHERE price BETWEEN 30 AND 50 ORDER BY product_name ASC;
+SELECT `productID`, `product_name`, `price` FROM `products` WHERE price BETWEEN 30 AND 50 ORDER BY product_name DESC;
+
+
+Insert Value
+----------
+INSERT INTO products (id, product_name, price, quantity) VALUES (NULL,'REALME','2500','5');  -> auto increment deya tai NULL or bad diye likhleu hobe
+INSERT INTO products (product_name, price, quantity) VALUES ('REALME','2500','5'); 
+
+INSERT INTO products (id, product_name, price, quantity) VALUES (NULL,'REDMI','1500','3'), (NULL,'VIVO','1400','2');
+
+INSERT INTO products
+(id, product_name, price, quantity)
+VALUES (NULL,'REDMI','2500','5'),
+(NULL,'NOTHING','1400','2');
+
+
+
+
+
+
+Shell
+-------------
+mysql -h localhost -u root -p
+Enter password:
+
+-h = host, -u = user, -p = password  (we don't set any password so just stay as empty)
+
+exit;
+show databases;
