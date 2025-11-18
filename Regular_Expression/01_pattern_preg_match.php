@@ -17,7 +17,8 @@ $line = "rakib is a used to be lazy when get many task or fund noting to do. And
 
 $line = "<b>Rakib</b> is a good boy";
 if (preg_match_all("/<b>(.*)<\/b>/U", $line,  $match)){
-    print "Get it";
+    
+    print "Get it <br>";
 }
 
 print_r($match);
