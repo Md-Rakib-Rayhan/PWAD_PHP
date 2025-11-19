@@ -1,6 +1,5 @@
 <?php
 
-// Still Working not done _____________________________________
     $n = 0;
 
     try {
@@ -18,6 +17,8 @@
         echo $abc->getMessage() . "<br>";   // getMessage run korle throw kora message show hobe
         echo $abc->getLine() . "<br>";      // koto number line a error asse
         echo $abc->getFile() ."<br>";       // konfile theke error asse (multiple file niye kaj korar somoy aita very helpfull)
+    } finally { # sob somoy run korbe
+        echo "<br> Always run whether the condition is true or false";
     }
 
     
