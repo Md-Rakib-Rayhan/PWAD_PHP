@@ -65,6 +65,17 @@ VALUES (NULL,'REDMI','2500','5'),
 
 
 
+UPDATE students SET name = 'Md. Rakib Rayhan' WHERE Id = 1;
+UPDATE students SET name = 'Md. Rakib Rayhan', email = 'md@gmail.com' WHERE Id = 1;
+#same
+UPDATE `students` SET `name` = 'Rakib Rayhan' WHERE `Id` = 1;
+UPDATE `students` SET `name` = 'Rakib Rayhan' WHERE `students`.`Id` = 1; 
+
+
+
+DELETE FROM students WHERE id = 6;
+DELETE FROM students WHERE `Id` = 5;
+DELETE FROM students WHERE `students`.`Id` = 5;
 
 
 Shell
