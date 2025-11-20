@@ -32,7 +32,7 @@
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1>Validation</h1>
+            <h1>Student Entry</h1>
           </div>
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
@@ -53,32 +53,67 @@
             <!-- jquery validation -->
             <div class="card card-primary">
               <div class="card-header">
-                <h3 class="card-title">Quick Example <small>jQuery Validation</small></h3>
+                <h3 class="card-title">Admit New Student</h3>
               </div>
               <!-- /.card-header -->
-              <!-- form start -->
-              <form id="quickForm">
+
+
+
+
+              <?php
+
+                if (
+                      isset($_POST['submit']) &&
+                      !empty($_POST['name']) &&
+                      !empty($_POST['dob']) &&
+                      !empty($_POST['location']))
+                {
+                  extract($_POST);
+                  $sql = "INSERT INTO students VALUE(NULL,'$name', '$dob', '$location');";
+
+                  include_once("../inc/sql/db_config.php");
+                  $db->query($sql);
+                  if($db->affected_rows){
+                    echo "<div class='alert alert-success'>Successfully Inserted</div>";
+                  }else{
+                    echo "<div class='alert alert-danger'>Not Inserted</div>";
+                  }
+                }elseif(isset($_POST['submit'])){
+                  echo "<div class='alert alert-danger'>Do not Put Any Empty</div>";
+                }
+              
+              ?>
+
+
+              <!-- form start ------------------------------------------------------------------>
+              <form id="quickForm" method="POST">
                 <div class="card-body">
                   <div class="form-group">
-                    <label for="exampleInputEmail1">Email address</label>
-                    <input type="email" name="email" class="form-control" id="exampleInputEmail1" placeholder="Enter email">
+                    <label for="exampleInputEmail1">Name</label>
+                    <input type="text" name="name" class="form-control" id="exampleInputEmail1" placeholder="Enter Name">
                   </div>
                   <div class="form-group">
-                    <label for="exampleInputPassword1">Password</label>
-                    <input type="password" name="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+                    <label for="exampleInputPassword1">Date of birth</label>
+                    <input type="date" name="dob" class="form-control" id="exampleInputPassword1">
                   </div>
-                  <div class="form-group mb-0">
-                    <div class="custom-control custom-checkbox">
-                      <input type="checkbox" name="terms" class="custom-control-input" id="exampleCheck1">
-                      <label class="custom-control-label" for="exampleCheck1">I agree to the <a href="#">terms of service</a>.</label>
-                    </div>
+                  <div class="form-group">
+                    <label for="exampleInputPassword1">Location</label>
+                    <input type="text" name="location" class="form-control" placeholder="Enter Your Location" id="exampleInputPassword1">
                   </div>
                 </div>
                 <!-- /.card-body -->
                 <div class="card-footer">
-                  <button type="submit" class="btn btn-primary">Submit</button>
+                  <button type="submit" name="submit" class="btn btn-primary">Submit</button>
                 </div>
               </form>
+
+
+              
+              
+
+
+
+
             </div>
             <!-- /.card -->
             </div>
@@ -122,51 +157,53 @@
 <!-- AdminLTE for demo purposes -->
 <script src="../dist/js/demo.js"></script>
 <!-- Page specific script -->
+
+
 <script>
-$(function () {
-  $.validator.setDefaults({
-    submitHandler: function () {
-      alert( "Form successful submitted!" );
-    }
-  });
-  $('#quickForm').validate({
-    rules: {
-      email: {
-        required: true,
-        email: true,
-      },
-      password: {
-        required: true,
-        minlength: 5
-      },
-      terms: {
-        required: true
-      },
-    },
-    messages: {
-      email: {
-        required: "Please enter a email address",
-        email: "Please enter a valid email address"
-      },
-      password: {
-        required: "Please provide a password",
-        minlength: "Your password must be at least 5 characters long"
-      },
-      terms: "Please accept our terms"
-    },
-    errorElement: 'span',
-    errorPlacement: function (error, element) {
-      error.addClass('invalid-feedback');
-      element.closest('.form-group').append(error);
-    },
-    highlight: function (element, errorClass, validClass) {
-      $(element).addClass('is-invalid');
-    },
-    unhighlight: function (element, errorClass, validClass) {
-      $(element).removeClass('is-invalid');
-    }
-  });
-});
+// $(function () {
+//   $.validator.setDefaults({
+//     submitHandler: function () {
+//       alert( "Form successful submitted!" );
+//     }
+//   });
+//   $('#quickForm').validate({
+//     rules: {
+//       email: {
+//         required: true,
+//         email: true,
+//       },
+//       password: {
+//         required: true,
+//         minlength: 5
+//       },
+//       terms: {
+//         required: true
+//       },
+//     },
+//     messages: {
+//       email: {
+//         required: "Please enter a email address",
+//         email: "Please enter a valid email address"
+//       },
+//       password: {
+//         required: "Please provide a password",
+//         minlength: "Your password must be at least 5 characters long"
+//       },
+//       terms: "Please accept our terms"
+//     },
+//     errorElement: 'span',
+//     errorPlacement: function (error, element) {
+//       error.addClass('invalid-feedback');
+//       element.closest('.form-group').append(error);
+//     },
+//     highlight: function (element, errorClass, validClass) {
+//       $(element).addClass('is-invalid');
+//     },
+//     unhighlight: function (element, errorClass, validClass) {
+//       $(element).removeClass('is-invalid');
+//     }
+//   });
+// });
 </script>
 </body>
 </html>
