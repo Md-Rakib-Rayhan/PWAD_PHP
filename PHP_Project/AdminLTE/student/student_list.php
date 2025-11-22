@@ -1,4 +1,4 @@
-<?php include_once("../inc/sql/db_config.php"); ?>
+<?php include_once("../inc/sql/db_config.php"); session_start(); ?>
 <!-- Also Mandatory for table view -->
 <!DOCTYPE html>
 <html lang="en">
@@ -62,6 +62,13 @@
       <!-- All Student Data -->
         <div class="row">
           <div class="col-12">
+            <?php
+              
+              if (isset($_SESSION['msg'])) {
+                echo "<div class='alert alert-success'>" . $_SESSION['msg']. "</div>";
+                unset($_SESSION['msg']); # Delete
+              }
+            ?>
             <div class="card">
               <div class="card-header">
                 <h3 class="card-title">All Student Data</h3>
@@ -75,6 +82,7 @@
                     <th>Name</th>
                     <th>Date of birth</th>
                     <th>location</th>
+                    <th>Action</th>
                   </tr>
                   </thead>
                   <tbody>
@@ -107,6 +115,11 @@
                     </td>
                     <td>
                       <?php echo $data->location; ?>
+                    </td>
+                    <td style="text-align: center;">
+                      <a href="student_edit.php?id=<?php echo $data->id; ?>"><i class="fas fa-edit"></i></a>
+                      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                      <a onclick="return confirm('Are you sure?')" href="student_delete.php?id=<?php echo $data->id; ?>"><i class="fas fa-trash"></i></a>
                     </td>
 
                   </tr>

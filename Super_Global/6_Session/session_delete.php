@@ -5,6 +5,10 @@
     session_destroy();              // Step 2: Delete the session file
 
     echo "session is destroy";
+
+    unset($_SESSION['myname']);        // Clear specific variable
+
+    
     
 
 
