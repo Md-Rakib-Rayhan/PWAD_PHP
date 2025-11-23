@@ -21,7 +21,8 @@
     
     if(isset($_REQUEST['find']) && $_REQUEST['num']!= ""){
         
-        $datas = list($data) = explode(",",$_REQUEST["num"]); // array
+        // $datas = list($data) = explode(",",$_REQUEST["num"]); // same
+        $datas = explode(",",$_REQUEST["num"]); // explode will make array
         $max = $datas[0];
         $min = $datas[0];
 

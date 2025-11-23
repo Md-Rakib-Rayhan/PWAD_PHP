@@ -24,6 +24,7 @@ class student{
                 $this->name = $name;
                 $this->batch = $batch;
                 $this->result_data = $result;
+                break;
             }
 
             }

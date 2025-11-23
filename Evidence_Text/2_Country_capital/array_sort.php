@@ -9,13 +9,20 @@
     );
 
 
-    // sort($country_list); // apply sorting on value
-    ksort($country_list); // apply sorting on key
+#   apply sorting on value
+    // sort($country_list);     # re-indexing kore fele (lose original key) || 0,1,2 kore fele
+    asort($country_list);  # index/key golor nam thik rekhe sort hobe
 
-    // rsort($country_list); // descending short on value
+#   apply sorting on key
+    // ksort($country_list);
+
+#   apply descending short on value
+    // rsort($country_list);  
+    // arsort($country_list);
+
+#   apply descending short on key
     // krsort($country_list); //descending short on key
 
-    // arsort($country_list); // decenging short by value
 
     // echo "<pre>";
     // print_r($country_list);
