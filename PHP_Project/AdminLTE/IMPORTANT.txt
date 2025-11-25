@@ -1,3 +1,7 @@
 Change the url
     -> $home_url = "/1293874/PWAD_PHP/PHP_Project/AdminLTE/"; #perfect but don't work if folder name changed
     in inc/sql/db_config.php
+
+
+Admin email -> adminrakib@gmail.com
+Password    -> admin

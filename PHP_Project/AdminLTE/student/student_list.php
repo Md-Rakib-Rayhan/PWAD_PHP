@@ -1,4 +1,11 @@
-<?php include_once("../inc/sql/db_config.php"); session_start(); ?>
+<?php include_once("../inc/sql/db_config.php"); ?>
+<?php
+session_start();
+if (!isset($_SESSION["logedin"])){
+  header("location: $home_url");
+}
+?>
+
 <!-- Also Mandatory for table view -->
 <!DOCTYPE html>
 <html lang="en">
@@ -79,6 +86,7 @@
                   <thead>
                   <tr>
                     <th>SL.#</th>
+                    <th>Photo</th>
                     <th>Name</th>
                     <th>Date of birth</th>
                     <th>location</th>
@@ -106,6 +114,9 @@
                   <tr>
                     <td>
                       <?php echo $data->id; ?>
+                    </td>
+                    <td>
+                      <img src="<?php if($data->photo != ""){echo "../".$data->photo;} else {echo "upload/No_Image_Available.jpg";} ?>" alt="profile Image" width="50px" height="50px" style="object-fit:cover; border-radius: 50%;">
                     </td>
                     <td>
                       <?php echo $data->name; ?>

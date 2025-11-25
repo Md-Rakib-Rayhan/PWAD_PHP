@@ -1,0 +1,31 @@
+
+mysql -u root -p
+-----enter to database username(root)
+
+
+            username                         password
+create user 'jason'@'localhost' identified by 'abcd';
+-------create user and password
+
+
+mysql -u jason -p
+Enter password: ****
+--------Enter in that database
+
+
+
+show databases;
+------- to see the all database
+
+use student_form;
+-------- use/enter to change that database
+
+show students_name;
+-------- to see the tables
+
+
+///need to check------not done yet
+grant SELECT ON user_pass_check.* To 'jason'@'localhost';
+
+
+

@@ -29,7 +29,16 @@
     $record = $db->query($sql);
     // echo $record->num_rows; #if find 0 then false if find 1 then true
 
+    $row = $record->fetch_assoc();
+
     if($record->num_rows > 0){
+      session_start();
+      $_SESSION["logedin"] = TRUE;
+      $_SESSION["email"] = $email;
+      $_SESSION["name"] = $row['name'];
+      $_SESSION["photo"] = $row['photo'];
+
+
       header("location: deshboard_home.php");
     }else{
       echo "Wrong Input";

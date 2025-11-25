@@ -1,4 +1,13 @@
 <?php include_once("../inc/sql/db_config.php"); ?>
+
+<?php
+session_start();
+if (!isset($_SESSION["logedin"])){
+  header("location: $home_url");
+}
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>

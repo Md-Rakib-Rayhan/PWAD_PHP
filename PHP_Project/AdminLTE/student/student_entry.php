@@ -1,3 +1,12 @@
+<?php
+include_once("../inc/sql/db_config.php");
+
+session_start();
+if (!isset($_SESSION["logedin"])){
+  header("location: $home_url");
+}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -69,9 +78,20 @@
                       !empty($_POST['location']))
                 {
                   extract($_POST);
-                  $sql = "INSERT INTO students VALUE(NULL,'$name', '$dob', '$location');";
 
-                  include_once("../inc/sql/db_config.php");
+                  if (!empty($_FILES["photo"]["name"])) {
+                    $photo_name = $_FILES["photo"]["name"];
+                    $tmp_name = $_FILES["photo"]["tmp_name"];
+                    $upload_path = "student/upload/";
+                    $full_path = $upload_path . $photo_name;
+                    move_uploaded_file($tmp_name, "upload/". $photo_name);
+                  }
+
+
+
+
+
+                  $sql = "INSERT INTO students VALUE(NULL,'$name', '$dob', '$location', '$full_path');";
                   $db->query($sql);
                   if($db->affected_rows){
                     echo "<div class='alert alert-success'>Successfully Inserted</div>";
@@ -86,7 +106,7 @@
 
 
               <!-- form start ------------------------------------------------------------------>
-              <form id="quickForm" method="POST">
+              <form id="quickForm" method="POST" enctype="multipart/form-data">
                 <div class="card-body">
                   <div class="form-group">
                     <label for="exampleInputEmail1">Name</label>
@@ -99,6 +119,10 @@
                   <div class="form-group">
                     <label for="exampleInputPassword1">Location</label>
                     <input type="text" name="location" class="form-control" placeholder="Enter Your Location" id="exampleInputPassword1">
+                  </div>
+                  <div class="form-group">
+                    <label for="exampleInputPassword1">Photo</label>
+                    <input type="file" name="photo">
                   </div>
                 </div>
                 <!-- /.card-body -->
