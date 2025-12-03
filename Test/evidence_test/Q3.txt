@@ -1,0 +1,2 @@
+manufacturer_delete
+DELETE FROM product WHERE manufacturer_id = OLD.id;

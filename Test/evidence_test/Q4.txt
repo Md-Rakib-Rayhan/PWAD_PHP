@@ -1,0 +1,2 @@
+
+CREATE VIEW exp_product AS SELECT id, name, price, manufacturer_id FROM product WHERE price > 5000;

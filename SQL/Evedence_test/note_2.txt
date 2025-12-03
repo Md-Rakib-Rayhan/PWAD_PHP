@@ -1,0 +1,41 @@
+2
+---------------
+INSERT INTO `students` (`id`, `name`, `address`, `mobile`) VALUES (NULL, 'Rakib', 'Narayanganj', '01922654'), (NULL, 'Rayhan ', 'Dhaka', '01546258');
+
+INSERT INTO `results` (`id`, `module_name`, `total_marks`, `student_id`) VALUES (NULL, 'Software Engineering', '25', '1'), (NULL, 'Web Development', '24', '1'), (NULL, 'Software Engineering', '20', '2'), (NULL, 'Web Development', '21', '2'), (NULL, 'Software Engineering', '19', '3'), (NULL, 'Web Development', '15', '3'), (NULL, 'Software Engineering', '16', '4'), (NULL, 'Web Development', '17', '4'), (NULL, 'Software Engineering', '20', '5'), (NULL, 'Web Development', '20', '5');
+
+CREATE TRIGGER `if_student_del_then_result` AFTER DELETE ON `students` FOR EACH ROW DELETE FROM results WHERE results.student_id = OLD.id;
+
+
+
+
+Insert data from Procedures
+Procedures
+--------
+CREATE PROCEDURE `student_entry`(IN `p_name` VARCHAR(50), IN `p_address` VARCHAR(100), IN `p_mobile` VARCHAR(20)) NOT DETERMINISTIC CONTAINS SQL SQL SECURITY DEFINER INSERT INTO students (id, name, address, mobile) VALUES (NULL, p_name, p_address, p_mobile);
+
+SET @p0='Rakib'; SET @p1='Mirpur'; SET @p2='01658855'; CALL `student_entry`(@p0, @p1, @p2);
+
+
+$sql = "CALL Manufacturer_Insert('$name', '$address', '$contact_no')";
+$db->query($sql);
+
+
+
+
+See different table data once in view
+Create View
+-------------------
+
+check
+---
+SELECT students.id, students.name, results.module_name, results.total_marks 
+FROM students, results WHERE students.id = results.student_id;
+
+Create
+----
+CREATE VIEW students_results AS
+SELECT students.id, students.name, results.module_name, results.total_marks 
+FROM students, results WHERE students.id = results.student_id;
+
+Note: SQL code ta database level a SQL run korte hobe 

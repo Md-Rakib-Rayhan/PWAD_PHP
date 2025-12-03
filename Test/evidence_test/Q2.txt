@@ -1,0 +1,8 @@
+manufacturer_entry
+-
+INSERT INTO manufacturer (id, name, address, contact_no)
+VALUES (NULL, m_name, m_address, m_contact_no);
+
+execute-code
+-
+CREATE PROCEDURE `manufacturer_entry`(IN `m_name` VARCHAR(50), IN `m_address` VARCHAR(100), IN `m_contact_no` INT(50)) NOT DETERMINISTIC CONTAINS SQL SQL SECURITY DEFINER INSERT INTO manufacturer (id, name, address, contact_no) VALUES (NULL, m_name, m_address, m_contact_no);
