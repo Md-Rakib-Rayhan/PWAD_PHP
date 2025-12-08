@@ -8,3 +8,9 @@ function add( parameter ) {
 }
 add( argument );
 
+
+header("Location: index.php");
+	-> PHP headers must be sent BEFORE any HTML output(example: <p>it give a output</p>)
+	-> Do NOT put header() in the middle or end of the page.
+From php.net->
+  ->Remember that header() must be called before any actual output is sent, either by normal HTML tags, blank lines in a file, or from PHP.
