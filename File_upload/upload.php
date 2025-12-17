@@ -15,6 +15,11 @@
 
     <?php
 
+
+// Hey!___________
+// the main photo upload and load with the help of database placed in
+// PWAD_PHP/PHP_Project/AdminLTE/student/student_entry.php
+
         echo "<pre>";
         if(isset($_POST["upload"])){
             // print_r($_FILES);

@@ -80,11 +80,17 @@ if (!isset($_SESSION["logedin"])){
                   extract($_POST);
 
                   if (!empty($_FILES["photo"]["name"])) {
-                    $photo_name = $_FILES["photo"]["name"];
+
+
                     $tmp_name = $_FILES["photo"]["tmp_name"];
+                    $photo_name = $_FILES["photo"]["name"];
                     $upload_path = "student/upload/";
-                    $full_path = $upload_path . $photo_name;
+
+                    // move here(server)
                     move_uploaded_file($tmp_name, "upload/". $photo_name);
+
+                    // full path after move(for store path on database)
+                    $full_path = $upload_path . $photo_name;
                   }
 
 
