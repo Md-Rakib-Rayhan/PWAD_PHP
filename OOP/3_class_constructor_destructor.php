@@ -18,7 +18,6 @@ $objtext = new Test();
 
 
 ?>
-
 <hr>
 
 <?php
@@ -38,8 +37,8 @@ class Fruit{
 
 }
 
-$ObjFruit = new Fruit("Mango", "Orange");
+$ObjFruit = new Fruit("Mango", "Orange"); // Object Create korar sathei paramiter pass kore dite hoy constructor er jonno
 echo $ObjFruit->getname();
 
-
 ?>
+<hr>
